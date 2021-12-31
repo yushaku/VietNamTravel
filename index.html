@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="stylesheet" href="./assets/css/style.css" />
+      <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+      <link rel="img" href="./assets/img/" />
+      <title>Yushaku</title>
+   </head>
+   <body>
+      <div class="container">
+         <div w3-include-html="./assets/components/header.html"></div>
+
+         <div id="main">
+            <!-- Slider main container -->
+            <div class="swiper">
+               <!-- Additional required wrapper -->
+               <div class="swiper-wrapper">
+                  <!-- Slides -->
+
+               </div>
+               <!-- If we need pagination -->
+               <div class="swiper-pagination"></div>
+            </div>
+
+            <div class="socialMedia">
+               <ul class="socialMediaList">
+                  <li class="socialMediaItem">
+                     <a href="">
+                        <ion-icon name="logo-facebook"></ion-icon>
+                     </a>
+                  </li>
+                  <li class="socialMediaItem">
+                     <a href="">
+                        <ion-icon name="logo-instagram"></ion-icon>
+                     </a>
+                  </li>
+                  <li class="socialMediaItem">
+                     <a href="">
+                        <ion-icon name="logo-github"></ion-icon>
+                     </a>
+                  </li>
+                  <li class="socialMediaItem">
+                     <a href="">
+                        <ion-icon name="logo-linkedin"></ion-icon>
+                     </a>
+                  </li>
+                  <li class="socialMediaItem">
+                     <a href="">
+                        <ion-icon name="logo-youtube"></ion-icon>
+                     </a>
+                  </li>
+               </ul>
+            </div>
+         </div>
+
+         <div w3-include-html="./assets/components/footer.html"></div>
+      </div>
+   </body>
+
+   <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+   <script src="./assets/javascript/index.js"></script>
+   <script>
+      const swiper = new Swiper(".swiper", {
+         // Optional parameters
+         direction: "horizontal",
+         loop: true,
+         // If we need pagination
+         pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+            bulletClass: "swiper-pagination-bullet",
+         },
+         autoplay: {
+            delay: 10000,
+         },
+         scrollbar: {
+            el: ".swiper-scrollbar",
+            draggable: true,
+         },
+      });
+   </script>
+   <script>
+      const swiperSlide = [
+         {
+            title: "Văn Hóa",
+            where: "Việt Nam",
+            path: "./assets/video/homepage//van-hoa.mp4",
+            desc: "Việt Nam điểm đến mới của thế giới sẽ không làm bạn thất vọng. Với bề dày lịch sử của mình, Việt Nam ẩn chứa trong mình một nền văn hóa vô cùng phong phú hòa quện cùng nền ẩm thực hấp dẫn đến mê người.",
+            miniDesc:'Việt Nam điểm đến mới của thế giới sẽ không làm bạn thất vọng.',
+         },
+         {
+            title: "Con người",
+            where: "Việt Nam",
+            path: "./assets/video/homepage/con-nguoi.mp4",
+            desc: "Việt Nam điểm đến mới của thế giới sẽ không làm bạn thất vọng. Với bề dày lịch sử của mình, Việt Nam ẩn chứa trong mình một nền văn hóa vô cùng phong phú hòa quện cùng nền ẩm thực hấp dẫn đến mê người.",
+            miniDesc:'Việt Nam điểm đến mới của thế giới sẽ không làm bạn thất vọng.'
+         },
+         {
+            title: "Ẩm thực",
+            where: "Việt Nam",
+            path: "./assets/video/homepage/am-thuc.mp4",
+            desc: "Việt Nam điểm đến mới của thế giới sẽ không làm bạn thất vọng. Với bề dày lịch sử của mình, Việt Nam ẩn chứa trong mình một nền văn hóa vô cùng phong phú hòa quện cùng nền ẩm thực hấp dẫn đến mê người.",
+            miniDesc:'Việt Nam điểm đến mới của thế giới sẽ không làm bạn thất vọng.',
+         },
+         {
+            title: "Du Lịch",
+            where: "Việt Nam",
+            path: "./assets/video/homepage/du-lich.mp4",
+            desc: "Việt Nam điểm đến mới của thế giới sẽ không làm bạn thất vọng. Với bề dày lịch sử của mình, Việt Nam ẩn chứa trong mình một nền văn hóa vô cùng phong phú hòa quện cùng nền ẩm thực hấp dẫn đến mê người.",
+            miniDesc:'Việt Nam điểm đến mới của thế giới sẽ không làm bạn thất vọng.',
+         },
+      ];
+      const sliderItems = swiperSlide.map((sliderItem, index) => {
+         return ` 
+         <div class="swiper-slide">
+            <video autoplay muted src="${sliderItem.path}"></video>
+               <div class="content">
+                  <div class="title">
+                     <h2>${sliderItem.title}</h2>
+                     <h1>${sliderItem.where}</h1>
+                     <p>${window.outerWidth < 720 ? sliderItem.miniDesc : sliderItem.desc}</p>
+                  </div>
+                     <button>Khám phá ngay</button>
+               </div>
+            </div>
+         </div>
+         `;
+      });
+      $(".swiper-wrapper").html(sliderItems);
+   </script>
+</html>
